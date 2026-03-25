@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Calculadora CCTV Pro - Gratis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calculadora gratuita de almacenamiento y ancho de banda para cámaras de seguridad CCTV.">
-  <meta name="keywords" content="cctv, calculadora cámaras ip, almacenamiento nvr, bitrate cámaras">
+  <meta name="description" content="Calculadora gratuita de almacenamiento, ancho de banda y consumo PoE para cámaras de seguridad CCTV.">
+  <meta name="keywords" content="cctv, calculadora cámaras ip, almacenamiento nvr, bitrate cámaras, poe consumo">
 
   <style>
     body {
@@ -65,6 +65,15 @@
       margin-top: 10px;
       color: #22c55e;
     }
+
+    .info {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
   </style>
 </head>
 <body>
@@ -96,12 +105,23 @@
     <div class="resultado" id="resBandwidth"></div>
   </div>
 
+  <div class="card">
+    <h2>Consumo PoE</h2>
+
+    <input type="number" id="camaras3" placeholder="Cantidad de cámaras">
+    <input type="number" id="consumo" placeholder="Consumo por cámara (Watts)">
+
+    <button onclick="calcPoe()">Calcular</button>
+
+    <div class="resultado" id="resPoe"></div>
+  </div>
+
 </div>
 
-<div style="margin-top:30px; font-size:14px; color:#ccc;">
+<div class="info">
   <p>
-    Esta herramienta te permite calcular el almacenamiento necesario para sistemas de videovigilancia (CCTV) 
-    y el ancho de banda requerido según la cantidad de cámaras y su bitrate.
+    Esta herramienta te permite calcular el almacenamiento necesario para sistemas de videovigilancia (CCTV), 
+    el ancho de banda requerido y el consumo eléctrico PoE según la cantidad de cámaras y su configuración.
   </p>
 </div>
 
@@ -125,6 +145,16 @@ function calcBandwidth() {
 
   document.getElementById("resBandwidth").innerText =
     total + " Mbps totales";
+}
+
+function calcPoe() {
+  let c = document.getElementById("camaras3").value;
+  let w = document.getElementById("consumo").value;
+
+  let total = c * w;
+
+  document.getElementById("resPoe").innerText =
+    total + " Watts totales necesarios";
 }
 </script>
 
