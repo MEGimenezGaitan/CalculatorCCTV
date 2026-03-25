@@ -2,127 +2,130 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Calculadora CCTV Pro - Gratis</title>
+  <title>Calculadora CCTV Pro</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Calculadora gratuita de almacenamiento, ancho de banda y consumo PoE para cámaras de seguridad CCTV.">
-  <meta name="keywords" content="cctv, calculadora cámaras ip, almacenamiento nvr, bitrate cámaras, poe consumo">
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #020617);
       color: white;
-      text-align: center;
       margin: 0;
     }
 
     header {
-      background: #1e293b;
-      padding: 20px;
-      font-size: 24px;
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 28px;
       font-weight: bold;
     }
 
     .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 20px;
-      max-width: 500px;
-      margin: auto;
-    }
-
-    input, button {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border-radius: 8px;
-      border: none;
-    }
-
-    input {
-      background: #1e293b;
-      color: white;
-    }
-
-    button {
-      background: #22c55e;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background: #16a34a;
+      gap: 20px;
     }
 
     .card {
       background: #1e293b;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
+      padding: 25px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: none;
+      background: #0f172a;
+      color: white;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 10px;
+      border: none;
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: scale(1.02);
     }
 
     .resultado {
-      font-size: 20px;
-      margin-top: 10px;
-      color: #22c55e;
+      margin-top: 15px;
+      font-size: 18px;
+      color: #4ade80;
     }
 
     .info {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #ccc;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+      padding: 20px;
       max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: auto;
     }
   </style>
 </head>
 <body>
 
-<header>📡 Calculadora CCTV Profesional</header>
+<header>📡 Calculadora CCTV Pro</header>
 
 <div class="container">
 
   <div class="card">
-    <h2>Almacenamiento</h2>
-
+    <h2>💾 Almacenamiento</h2>
     <input type="number" id="camaras" placeholder="Cantidad de cámaras">
     <input type="number" id="bitrate" placeholder="Bitrate (Mbps)">
     <input type="number" id="dias" placeholder="Días de grabación">
-
     <button onclick="calcStorage()">Calcular</button>
-
     <div class="resultado" id="resStorage"></div>
   </div>
 
   <div class="card">
-    <h2>Ancho de banda</h2>
-
+    <h2>🌐 Ancho de banda</h2>
     <input type="number" id="camaras2" placeholder="Cantidad de cámaras">
     <input type="number" id="bitrate2" placeholder="Bitrate (Mbps)">
-
     <button onclick="calcBandwidth()">Calcular</button>
-
     <div class="resultado" id="resBandwidth"></div>
   </div>
 
   <div class="card">
-    <h2>Consumo PoE</h2>
-
+    <h2>⚡ Consumo PoE</h2>
     <input type="number" id="camaras3" placeholder="Cantidad de cámaras">
-    <input type="number" id="consumo" placeholder="Consumo por cámara (Watts)">
-
+    <input type="number" id="consumo" placeholder="Watts por cámara">
     <button onclick="calcPoe()">Calcular</button>
-
     <div class="resultado" id="resPoe"></div>
   </div>
 
 </div>
 
 <div class="info">
-  <p>
-    Esta herramienta te permite calcular el almacenamiento necesario para sistemas de videovigilancia (CCTV), 
-    el ancho de banda requerido y el consumo eléctrico PoE según la cantidad de cámaras y su configuración.
-  </p>
+  Herramienta gratuita para calcular almacenamiento, ancho de banda y consumo eléctrico en sistemas CCTV.
 </div>
 
 <script>
