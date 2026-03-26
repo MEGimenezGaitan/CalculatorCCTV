@@ -1,0 +1,29 @@
+{
+  "name": "calculator-cctv",
+  "version": "1.0.0",
+  "description": "Calculadora CCTV Pro - Herramienta para calcular almacenamiento, ancho de banda y consumo eléctrico en sistemas CCTV",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MEGimenezGaitan/CalculatorCCTV.git"
+  },
+  "keywords": [
+    "cctv",
+    "calculator",
+    "security",
+    "cameras",
+    "analytics"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MEGimenezGaitan/CalculatorCCTV/issues"
+  },
+  "homepage": "https://github.com/MEGimenezGaitan/CalculatorCCTV#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
