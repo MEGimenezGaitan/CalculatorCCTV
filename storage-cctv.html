@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora CCTV Avanzada | Almacenamiento por Resolución y H265</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Calculadora avanzada de almacenamiento CCTV según resolución, FPS y compresión H264 o H265.">
+  <meta name="keywords" content="cctv almacenamiento 4k, calculadora h265, bitrate camaras ip, almacenamiento camaras seguridad">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: white;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 10px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 420px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    select, input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: none;
+    }
+
+    select, input {
+      background: #0f172a;
+      color: white;
+    }
+
+    button {
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .resultado {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #4ade80;
+    }
+
+    .seo {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    a {
+      color: #4ade80;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>📡 Calculadora CCTV Avanzada</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <input type="number" id="camaras" placeholder="Cantidad de cámaras">
+
+    <select id="resolucion">
+      <option value="2">1080p (2MP)</option>
+      <option value="4">4MP</option>
+      <option value="8">4K (8MP)</option>
+    </select>
+
+    <input type="number" id="fps" placeholder="FPS (ej: 15 o 30)">
+
+    <select id="compresion">
+      <option value="1">H264</option>
+      <option value="0.6">H265 (40% menos)</option>
+    </select>
+
+    <input type="number" id="dias" placeholder="Días de grabación">
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div class="resultado" id="resultado"></div>
+
+  </div>
+
+</div>
+
+<div class="seo">
+
+<h2>¿Cómo calcular almacenamiento CCTV?</h2>
+
+<p>
+El almacenamiento de cámaras de seguridad depende de la resolución, FPS, tipo de compresión (H264 o H265) y la cantidad de cámaras.
+Esta calculadora permite estimar el espacio necesario en sistemas NVR o DVR de forma rápida.
+</p>
+
+<p>
+El uso de H265 reduce considerablemente el consumo de almacenamiento, especialmente en sistemas con muchas cámaras o grabación continua.
+</p>
+
+<p>
+👉 <a href="/">Volver a la calculadora principal</a>
+</p>
+
+</div>
+
+<script>
+function calcular() {
+  let c = document.getElementById("camaras").value;
+  let r = document.getElementById("resolucion").value;
+  let fps = document.getElementById("fps").value;
+  let comp = document.getElementById("compresion").value;
+  let d = document.getElementById("dias").value;
+
+  let bitrate = r * fps * comp * 0.05; 
+
+  let total = c * bitrate * 0.0108 * d;
+
+  document.getElementById("resultado").innerText =
+    total.toFixed(2) + " TB necesarios (estimado)";
+}
+</script>
+
+</body>
+</html>
