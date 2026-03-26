@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora Disco CCTV | ¿Qué HDD necesito?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Calcula qué disco duro necesitas para CCTV según cámaras, días y resolución.">
+  <meta name="keywords" content="disco duro cctv, hdd para camaras, cuanto disco necesito nvr">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: white;
+      margin: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 16px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 10px;
+      border: none;
+    }
+
+    input, select {
+      background: #0f172a;
+      color: white;
+    }
+
+    button {
+      background: #22c55e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .resultado {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #4ade80;
+    }
+
+    .seo {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+
+    a {
+      color: #4ade80;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>💽 ¿Qué disco necesito para CCTV?</header>
+
+<div class="container">
+
+  <div class="card">
+
+    <input type="number" id="camaras" placeholder="Cantidad de cámaras">
+    <input type="number" id="dias" placeholder="Días de grabación">
+
+    <select id="calidad">
+      <option value="1">1080p (bajo)</option>
+      <option value="2">4MP (medio)</option>
+      <option value="3">4K (alto)</option>
+    </select>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div class="resultado" id="resultado"></div>
+
+  </div>
+
+</div>
+
+<div class="seo">
+
+<h2>¿Qué disco duro usar para cámaras de seguridad?</h2>
+
+<p>
+El tamaño del disco depende de la cantidad de cámaras, la calidad de grabación y los días de almacenamiento.
+Esta calculadora permite estimar qué HDD necesitas para un sistema CCTV.
+</p>
+
+<p>
+Para sistemas de videovigilancia se recomienda usar discos diseñados para grabación continua como los WD Purple o Seagate SkyHawk.
+</p>
+
+<p>
+👉 <a href="/">Volver a la calculadora principal</a>
+</p>
+
+</div>
+
+<script>
+function calcular() {
+  let c = document.getElementById("camaras").value;
+  let d = document.getElementById("dias").value;
+  let q = document.getElementById("calidad").value;
+
+  let base = c * d * q * 0.5;
+
+  let recomendacion = "";
+
+  if (base < 2) recomendacion = "1TB";
+  else if (base < 4) recomendacion = "2TB";
+  else if (base < 8) recomendacion = "4TB";
+  else if (base < 16) recomendacion = "8TB";
+  else recomendacion = "16TB o más";
+
+  document.getElementById("resultado").innerText =
+    "Recomendado: " + recomendacion;
+}
+</script>
+
+</body>
+</html>
