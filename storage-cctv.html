@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <title>Calculadora CCTV Avanzada | Almacenamiento por Resolución y H265</title>
-    <p style="text-align:center;">
-    👉 <a href="/" style="color:#4ade80;">Volver a la calculadora principal</a>
-    </p>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description" content="Calculadora avanzada de almacenamiento CCTV según resolución, FPS y compresión H264 o H265.">
   <meta name="keywords" content="cctv almacenamiento 4k, calculadora h265, bitrate camaras ip, almacenamiento camaras seguridad">
+
+  <!-- Adsense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127073207220817"
+  crossorigin="anonymous"></script>
 
   <style>
     body {
@@ -69,7 +71,7 @@
     }
 
     .seo {
-      max-width: 600px;
+      max-width: 700px;
       margin: auto;
       padding: 20px;
       font-size: 14px;
@@ -85,6 +87,20 @@
 <body>
 
 <header>📡 Calculadora CCTV Avanzada</header>
+
+<!-- TEXTO SEO ARRIBA -->
+<div style="max-width:700px; margin:auto; padding:20px; text-align:left; color:#cbd5f5;">
+  <h1>¿Cuánto almacenamiento necesita una cámara CCTV?</h1>
+
+  <p>
+  El almacenamiento en sistemas CCTV depende de la resolución, FPS, tipo de compresión (H264 o H265)
+  y la cantidad de cámaras. Con esta calculadora podés estimar fácilmente el espacio necesario.
+  </p>
+
+  <p>
+  👉 <a href="/cuanto-almacenamiento-cctv.html">Ver guía completa de almacenamiento CCTV</a>
+  </p>
+</div>
 
 <div class="container">
 
@@ -120,21 +136,26 @@
 <h2>¿Cómo calcular almacenamiento CCTV?</h2>
 
 <p>
-El almacenamiento de cámaras de seguridad depende de la resolución, FPS, tipo de compresión (H264 o H265) y la cantidad de cámaras.
-Esta calculadora permite estimar el espacio necesario en sistemas NVR o DVR de forma rápida.
+El almacenamiento depende del bitrate, la resolución y los días de grabación.
+A mayor calidad de video, mayor espacio requerido.
+</p>
+
+<h2>Ejemplo práctico</h2>
+
+<p>
+8 cámaras en 1080p grabando 30 días pueden requerir entre 2TB y 6TB.
+</p>
+
+<h2>H264 vs H265</h2>
+
+<p>
+H265 reduce el consumo de almacenamiento hasta un 40%.
 </p>
 
 <p>
-El uso de H265 reduce considerablemente el consumo de almacenamiento, especialmente en sistemas con muchas cámaras o grabación continua.
-</p>
-
-<p>
-👉 <a href="/">Volver a la calculadora principal</a>
-</p>
-
-<p>
+👉 <a href="/">Volver a la calculadora principal</a><br>
 👉 <a href="/hdd-cctv.html">Qué disco usar</a><br>
-👉 <a href="/bandwidth-cctv.html">Internet necesario para cámaras</a>
+👉 <a href="/bandwidth-cctv.html">Internet necesario</a>
 </p>
 
 </div>
@@ -148,7 +169,6 @@ function calcular() {
   let d = document.getElementById("dias").value;
 
   let bitrate = r * fps * comp * 0.05; 
-
   let total = c * bitrate * 0.0108 * d;
 
   document.getElementById("resultado").innerText =
